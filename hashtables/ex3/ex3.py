@@ -4,6 +4,21 @@ def intersection(arrays):
     YOUR CODE HERE
     """
 
+    result = []
+    cache = {}
+    
+    # May want to rewrite this as a binary search 
+    # Iterate through the shortest list, and BS the other 2
+    # Should be O((log n) * 2) at least
+    for element in arrays:
+        for arr in element:
+            if arr not in cache:
+                cache[arr] = 1
+            else:
+                cache[arr] += 1
+                if cache[arr] == len(arrays):
+                    result.append(arr)
+
     return result
 
 
